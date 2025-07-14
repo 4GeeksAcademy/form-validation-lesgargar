@@ -1,35 +1,147 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="./assets/img/4geeks.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo with Vanilla.js</title>
 
-    <!-- Fontawesome is our recomended library for icons -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
-    <!-- Write your HTML code here, you can delete everything withing the body tags -->
-    <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
-      <img src="./assets/img/rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
-      <div class="fixed-bottom p-4">
-        Made with ❤️ by
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <link rel="icon" href="./assets/img/4geeks.ico" />
+
+  <title>Hello Rigo with Vanilla.js</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Fontawesome is our recomended library for icons -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+    integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous" />
+</head>
+
+<body>
+  <!-- Write your HTML code here, you can delete everything withing the body tags -->
+  <div class="container-fluid text-center d-flex justify-content-center">
+    <div class="col-9 border rounded m-4 p-5 bg-primary-subtle">
+      <form id="form">
+        <div>
+          <h1 class="bg-primary-subtle">Payment form example</h1>
+        </div>
+        <div class="d-flex ">
+          <div class="col-4 p-2 d-flex flex-column">
+            <!-- card -->
+            <label>Card#</label>
+            <input id="cardNum" type="number" class="form-control col-12" name="isFilled">
+          </div>
+          <div class="col-4  p-2">
+            <!-- cvc -->
+            <label>CVC</label>
+            <input id="cvc" type="number" class="form-control col-12" name="isFilled">
+          </div>
+          <div class="col-4  p-2">
+            <!-- amount -->
+            <label>Amount</label>
+            <input id="amount" type="number" class="form-control col-12" name="isFilled">
+          </div>
+        </div>
+        <div class="d-flex flex-row">
+          <div class="col-6  p-2">
+            <!-- name -->
+            <label>Name</label>
+            <input id="name" type="text" class="form-control col-12" name="isFilled">
+          </div>
+          <div class="col-6  p-2">
+            <!-- last name -->
+            <label>Last Name</label>
+            <input id="lastName" type="text" class="form-control col-12" name="isFilled">
+          </div>
+        </div>
+
+        <div class="d-flex flex-row">
+          <div class="col-6  p-2">
+            <!-- city -->
+            <label>City</label>
+            <input id="city" type="text" class="form-control col-12" name="isFilled">
+          </div>
+
+          <div class="col-3 p-2">
+            <label> State</label>
+            <select class="form-control  w-100 " name="state" id="stateSelection">
+              <option value="" disabled selected>Pick a state</option>
+              <option value="state1">State 1</option>
+              <option value="state2">State 2</option>
+              <option value="state3">State 3</option>
+              <option value="state4">State 4</option>
+            </select>
+          </div>
+          <div class="col-3  p-2">
+            <!-- CP -->
+            <label>Postal Code</label>
+            <input id="postalCode" type="number" class="form-control col-12" name="isFilled">
+          </div>
+        </div>
+
+        <div class="d-flex">
+
+          <div class="col-6 p-2">
+            <label>We accept:</label>
+            <!-- radius button -->
+            <div id="paymentMethodContainer" class="d-flex align-items-center col-12 bg-secondary p-3 m-1 rounded">
+              <div class="col-3 d-flex justify-content-center p-2">
+                <input type="radio" id="brand1" name="payment" value="1" />
+                <label class="m-1" for="brand1">
+                  <i class="fa-brands fa-cc-mastercard fs-3" style="color: #fff"></i>
+                </label>
+              </div>
+              <div class="col-3 d-flex justify-content-center p-2">
+                <input type="radio" id="brand2" name="payment" value="2" />
+                <label class="m-1" for="brand2">
+                  <i class="fa-brands fa-cc-visa fs-3" style="color: #ffffff"></i>
+                </label>
+              </div>
+              <div class="col-3 d-flex justify-content-center p-2">
+                <input type="radio" id="brand3" name="payment" value="3" />
+                <label class="m-1" for="brand3">
+                  <i class="fa-solid fa-money-bill fs-3" style="color: #ffffff"></i>
+                </label>
+              </div>
+              <div class="col-3 d-flex justify-content-center">
+                <input type="radio" id="brand4" name="payment" value="4" />
+                <label class="m-1" for="brand4"><i class="fa-solid fa-credit-card fs-3"
+                    style="color: #ffffff"></i></label>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="col-6 p-2">
+            <!-- textarea -->
+            <label>Message</label>
+            <textarea id="message" class="w-100 h-2 form-control" name="isFilled"></textarea>
+            <div class="text-secondary">Add any notes here.</div>
+          </div>
+
+
+        </div>
+
+        <button type="button" class="btn btn-secondary m-1" id="cancelBtn" onclick="onCancel()">Cancel</button>
+        <button type="submit" class="btn btn-primary m-1">Send</button>
+      </form>
+
+
+
     </div>
 
-    <!-- Do not delete this script tag, this is what connects your HTML with the Javascript code -->
-    <script type="module" src="/app.js"></script>
-  </body>
+  </div>
+
+  <!-- Do not delete this script tag, this is what connects your HTML with the Javascript code -->
+  <script type="module" src="/app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+    crossorigin="anonymous"></script>
+
+</body>
+
 </html>
